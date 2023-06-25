@@ -27,3 +27,7 @@ unsigned int sum_multiples_alt(int num) {
    unsigned int sum_ft = 15 * ft * (ft + 1) / 2;
    return sum_t + sum_f - sum_ft;
 }
+
+int greatest_common_denominator(unsigned int a, unsigned int b) {
+   return 0;
+}
