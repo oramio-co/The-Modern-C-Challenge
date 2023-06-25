@@ -11,12 +11,14 @@ protected:
    std::vector<unsigned int> sums{};
    std::vector<unsigned int> results{};
 };
+
 TEST_F(SumMultiplesTest, sum_of_multiples_of_three_or_five) {
    for (auto num : nums) {
       results.push_back(sum_multiples(num));
    }
    ASSERT_EQ(results, sums);
 }
+
 TEST_F(SumMultiplesTest, sum_of_multiples_of_three_or_five_alt) {
    for (auto num : nums) {
       results.push_back(sum_multiples_alt(num));
@@ -33,4 +35,11 @@ TEST(MathTest, find_greatest_common_denominator) {
       results.push_back(greatest_common_denominator(a[i], b[i]));
    }
    ASSERT_EQ(results, gcd);
+}
+
+TEST(MathTest, find_least_common_multiple) {
+   int a{ 6 };
+   int b{ 9 };
+   unsigned int lcm{ 18 };
+   ASSERT_EQ(least_common_multple(a, b), lcm);
 }
