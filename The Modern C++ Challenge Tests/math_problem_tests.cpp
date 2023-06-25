@@ -41,5 +41,5 @@ TEST(MathTest, find_least_common_multiple) {
    int a{ 6 };
    int b{ 9 };
    unsigned int lcm{ 18 };
-   ASSERT_EQ(least_common_multple(a, b), lcm);
+   ASSERT_EQ(least_common_multiple(a, b), lcm);
 }

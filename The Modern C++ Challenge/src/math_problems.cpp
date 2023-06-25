@@ -41,3 +41,7 @@ int greatest_common_denominator(int a, int b) {
    }
    return a;
 }
+
+unsigned int least_common_multiple(int a, int b) {
+   return 0;
+}
