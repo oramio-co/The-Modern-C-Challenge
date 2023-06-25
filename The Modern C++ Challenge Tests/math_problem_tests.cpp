@@ -25,8 +25,12 @@ TEST_F(SumMultiplesTest, sum_of_multiples_of_three_or_five_alt) {
 }
 
 TEST(MathTest, find_greatest_common_denominator) {
-   unsigned int a{ 45 };
-   unsigned int b{ 72 };
-   int gcd{ 9 };
-   ASSERT_EQ(greatest_common_denominator(a, b), gcd);
+   std::vector<unsigned int> a{ 45 , 45, 45 };
+   std::vector<unsigned int> b{ 72 , 71, 90 };
+   std::vector<int> gcd{ 9 , 1, 45};
+   std::vector<int> results{};
+   for (std::size_t i = 0; i < a.size(); i++) {
+      results.push_back(greatest_common_denominator(a[i], b[i]));
+   }
+   ASSERT_EQ(results, gcd);
 }
