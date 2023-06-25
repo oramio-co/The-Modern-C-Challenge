@@ -13,3 +13,7 @@ unsigned int sum_multiples(int num) {
    }
    return sum;
 }
+
+unsigned int sum_multiples_alt(int num) {
+   return 0;
+}
