@@ -14,7 +14,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\math_problems_test_h.h">
+    <ClInclude Include="include\math_problems_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

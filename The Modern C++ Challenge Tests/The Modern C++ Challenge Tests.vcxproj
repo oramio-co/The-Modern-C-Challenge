@@ -33,10 +33,10 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="math_problem_tests.cpp" />
@@ -50,7 +50,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\math_problems_test_h.h" />
+    <ClInclude Include="include\math_problems_test.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
