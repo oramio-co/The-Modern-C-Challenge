@@ -34,9 +34,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;$(IncludePath)</IncludePath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;$(IncludePath)</IncludePath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="math_problem_tests.cpp" />
@@ -71,6 +73,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>"D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\Debug\The Modern C++ Challenge.lib";%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -103,6 +106,7 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalDependencies>"D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\Debug\The Modern C++ Challenge.lib";%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
