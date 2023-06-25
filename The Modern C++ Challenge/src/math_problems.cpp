@@ -46,3 +46,7 @@ unsigned int least_common_multiple(int a, int b) {
    int gcd{ greatest_common_denominator(a, b) };
    return a * b / gcd;
 }
+
+unsigned int find_largest_prime(unsigned int num) {
+   return 0;
+}
