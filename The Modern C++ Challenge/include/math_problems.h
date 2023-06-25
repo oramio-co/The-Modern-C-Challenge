@@ -3,6 +3,6 @@
 
 unsigned int sum_multiples(int num);
 unsigned int sum_multiples_alt(int num);
-int greatest_common_denominator(unsigned int a, unsigned int b);
+int greatest_common_denominator(int a, int b);
 
 #endif // !MATH_PROBLEMS_H
