@@ -1,6 +1,7 @@
-#include "math_problems_test_h.h"
+#include "math_problems_test.h"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+TEST(MathTest, sum_of_multiples_of_three_or_five) {
+   int num{ 15 };
+   int sum{ 23 };
+   ASSERT_EQ(sum_multiples(num), sum);
 }
