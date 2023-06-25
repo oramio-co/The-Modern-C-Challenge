@@ -47,3 +47,13 @@ TEST(MathTest, find_least_common_multiple) {
    }
    ASSERT_EQ(results, lcm);
 }
+
+TEST(MathTest, find_largest_prime_less_than_num) {
+   std::vector<int> nums{ 10, 100, 1000, 10000 };
+   std::vector<int> primes{ 7, 97, 997, 9887 };
+   std::vector<int> results{};
+   for (std::size_t i = 0; i < nums.size(); i++) {
+      results.push_back(find_largest_prime(a[i], b[i]));
+   }
+   ASSERT_EQ(results, primes);
+}
