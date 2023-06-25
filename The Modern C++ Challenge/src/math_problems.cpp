@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "math_problems.h"
 
 unsigned int sum_multiples(int num) {
@@ -28,6 +30,14 @@ unsigned int sum_multiples_alt(int num) {
    return sum_t + sum_f - sum_ft;
 }
 
-int greatest_common_denominator(unsigned int a, unsigned int b) {
-   return 9;
+int greatest_common_denominator(int a, int b) {
+   if (a < b) {
+      std::swap(a, b);
+   }
+   while (b) {
+      int r = a % b;
+      a = b;
+      b = r;
+   }
+   return a;
 }
