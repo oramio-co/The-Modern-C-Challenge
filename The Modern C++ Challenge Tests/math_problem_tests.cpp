@@ -23,3 +23,10 @@ TEST_F(SumMultiplesTest, sum_of_multiples_of_three_or_five_alt) {
    }
    ASSERT_EQ(results, sums);
 }
+
+TEST(MathTest, find_greatest_common_denominator) {
+   unsigned int a{ 45 };
+   unsigned int b{ 72 };
+   int gcd{ 9 };
+   ASSERT_EQ(greatest_common_denominator(a, b), gcd);
+}
