@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="math_problem_tests.cpp" />
+    <ClCompile Include="src\test_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\The Modern C++ Challenge\The Modern C++ Challenge.vcxproj">
