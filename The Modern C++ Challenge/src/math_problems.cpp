@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <vector>
 
 #include "math_problems.h"
 
@@ -8,7 +9,7 @@ unsigned int sum_multiples(int num) {
    if (num > MAX_NUM) {
       return sum;
    }
-   for (int i = 1; i <= num; i++) {
+   for (int i = 1; i <= num; ++i) {
       if (i % 3 == 0 || i % 5 == 0) {
          sum += i;
       }
@@ -48,5 +49,21 @@ unsigned int least_common_multiple(int a, int b) {
 }
 
 unsigned int find_largest_prime(unsigned int num) {
-   return 0;
+   std::vector<unsigned int> primes{};
+   for (unsigned int i = 2; i <= num; ++i) {
+      bool isPrime{ true };
+      for (auto prime : primes) {
+         if (prime * prime > i) {
+            break;
+         }
+         else if (i % prime == 0) {
+            isPrime = false;
+            break;
+         }
+      }
+      if (isPrime) {
+         primes.push_back(i);
+      }
+   }
+   return primes.back();
 }

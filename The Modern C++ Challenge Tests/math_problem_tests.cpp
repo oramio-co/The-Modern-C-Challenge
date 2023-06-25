@@ -50,7 +50,7 @@ TEST(MathTest, find_least_common_multiple) {
 
 TEST(MathTest, find_largest_prime_less_than_num) {
    std::vector<unsigned int> nums{ 10, 100, 1000, 10000 };
-   std::vector<unsigned int> primes{ 7, 97, 997, 9887 };
+   std::vector<unsigned int> primes{ 7, 97, 997, 9973 };
    std::vector<unsigned int> results{};
    for (std::size_t i = 0; i < nums.size(); i++) {
       results.push_back(find_largest_prime(nums[i]));
