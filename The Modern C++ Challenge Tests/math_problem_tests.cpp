@@ -38,8 +38,12 @@ TEST(MathTest, find_greatest_common_denominator) {
 }
 
 TEST(MathTest, find_least_common_multiple) {
-   int a{ 6 };
-   int b{ 9 };
-   unsigned int lcm{ 18 };
-   ASSERT_EQ(least_common_multiple(a, b), lcm);
+   std::vector<int> a{ 6, 6, 7 };
+   std::vector<int> b{ 9, 12, 12};
+   std::vector<unsigned int> lcm{ 18, 12, 84};
+   std::vector<unsigned int> results{};
+   for (std::size_t i = 0; i < a.size(); i++) {
+      results.push_back(least_common_multiple(a[i], b[i]));
+   }
+   ASSERT_EQ(results, lcm);
 }
