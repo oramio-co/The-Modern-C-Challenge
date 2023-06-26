@@ -48,7 +48,7 @@ unsigned int least_common_multiple(int a, int b) {
    return a * b / gcd;
 }
 
-unsigned int find_largest_prime(unsigned int num) {
+std::vector<unsigned int> generate_primes(unsigned int num) {
    std::vector<unsigned int> primes{};
    for (unsigned int i = 2; i <= num; ++i) {
       bool isPrime{ true };
@@ -65,7 +65,12 @@ unsigned int find_largest_prime(unsigned int num) {
          primes.push_back(i);
       }
    }
-   return primes.back();
+   return primes;
+}
+
+unsigned int find_largest_prime(unsigned int num) {
+   
+   return generate_primes(num).back();
 }
 
 sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num) {
