@@ -81,3 +81,9 @@ TEST(MathTest, find_sexy_primes_pairs) {
    }
    ASSERT_EQ(results, sexy_primes_list);
 }
+
+TEST(MathTest, calculate_abundant_numbers) {
+   unsigned int num{ 12 };
+   std::vector<unsigned int> abundant_nums{ 12 };
+   ASSERT_EQ(calculate_abundant_numbers(num), abundant_nums);
+}
