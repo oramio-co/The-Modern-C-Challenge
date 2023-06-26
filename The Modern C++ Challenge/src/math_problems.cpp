@@ -69,10 +69,27 @@ std::vector<unsigned int> generate_primes(unsigned int num) {
 }
 
 unsigned int find_largest_prime(unsigned int num) {
-   
    return generate_primes(num).back();
 }
 
 sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num) {
-   return sexy_primes_pairs{};
+   std::vector<unsigned int> primes{ generate_primes(num) };
+   sexy_primes_pairs pairs{};
+   for (auto it = primes.begin(); it != primes.end(); ++it) {
+      auto next = std::next(it);
+      bool done{ false };
+      while (next != primes.end() && !done) {
+         if (*next - *it > 6) {
+            done = true;
+         }
+         else if (*next - *it == 6) {
+            pairs.push_back(std::make_pair(*it, *next));
+            done = true;
+         }
+         else {
+            ++next;
+         }
+      }
+   }
+   return pairs;
 }
