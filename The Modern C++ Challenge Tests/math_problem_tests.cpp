@@ -83,7 +83,18 @@ TEST(MathTest, find_sexy_primes_pairs) {
 }
 
 TEST(MathTest, calculate_abundant_numbers) {
-   unsigned int num{ 12 };
-   std::vector<unsigned int> abundant_nums{ 12 };
-   ASSERT_EQ(calculate_abundant_numbers(num), abundant_nums);
+   std::vector<unsigned int> nums{ 12, 100, 200 };
+   std::vector<std::vector<unsigned int>> abundant_nums_lists{
+      { 12 },
+      { 12, 18, 20, 24, 30, 36, 40, 42, 48, 54, 56, 60, 66, 70, 72, 78, 80, 84,
+         88, 90, 96, 100 },
+      { 12, 18, 20, 24, 30, 36, 40, 42, 48, 54, 56, 60, 66, 70, 72, 78, 80, 84,
+         88, 90, 96, 100, 102, 104, 108, 112, 114, 120, 126, 132, 138, 140,
+         144, 150, 156, 160, 162, 168, 174, 176, 180, 186, 192, 196, 198, 200}
+   };
+   std::vector<std::vector<unsigned int>> results{};
+   for (auto num : nums) {
+      results.push_back(calculate_abundant_numbers(num));
+   }
+   ASSERT_EQ(results, abundant_nums_lists);
 }
