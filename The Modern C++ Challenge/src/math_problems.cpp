@@ -67,3 +67,7 @@ unsigned int find_largest_prime(unsigned int num) {
    }
    return primes.back();
 }
+
+sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num) {
+   return sexy_primes_pairs{};
+}
