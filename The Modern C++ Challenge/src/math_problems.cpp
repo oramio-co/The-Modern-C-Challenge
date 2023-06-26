@@ -93,3 +93,7 @@ sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num) {
    }
    return pairs;
 }
+
+std::vector<unsigned int> calculate_abundant_numbers(unsigned int num) {
+   return {};
+}

@@ -10,5 +10,6 @@ unsigned int least_common_multiple(int a, int b);
 std::vector<unsigned int> generate_primes(unsigned int num);
 unsigned int find_largest_prime(unsigned int num);
 sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num);
+std::vector<unsigned int> calculate_abundant_numbers(unsigned int num);
 
 #endif // !MATH_PROBLEMS_H
