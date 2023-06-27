@@ -98,3 +98,9 @@ TEST(MathTest, calculate_abundant_numbers) {
    }
    ASSERT_EQ(results, abundant_nums_lists);
 }
+
+TEST(MathTest, calculate_amicable_numbers) {
+   unsigned int num{ 300 };
+   std::pair<unsigned int, unsigned int> amicable_nums{ 220, 284 };
+   ASSERT_EQ(calculate_amicable_numbers(num), amicable_nums);
+}
