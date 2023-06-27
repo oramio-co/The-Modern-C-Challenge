@@ -95,5 +95,23 @@ sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num) {
 }
 
 std::vector<unsigned int> calculate_abundant_numbers(unsigned int num) {
-   return { 12 };
+   std::vector<unsigned int> abundant_nums{};
+   for (unsigned int i = 12; i <= num; ++i) {
+      unsigned int sum{0};
+      for (unsigned int j = 1; j * j <= i; ++j) {
+         if (i % j) {
+            continue;
+         }
+         if (j * j == i) {
+            sum += j;
+         }
+         else {
+            sum += j + (i / j);
+         }
+      }
+      if (sum > 2 * i) {
+         abundant_nums.push_back(i);
+      }
+   };
+   return abundant_nums;
 }
