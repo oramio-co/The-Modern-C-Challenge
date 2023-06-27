@@ -100,7 +100,24 @@ TEST(MathTest, calculate_abundant_numbers) {
 }
 
 TEST(MathTest, calculate_amicable_numbers) {
-   unsigned int num{ 300 };
-   std::pair<unsigned int, unsigned int> amicable_nums{ 220, 284 };
-   ASSERT_EQ(calculate_amicable_numbers(num), amicable_nums);
+   std::vector<unsigned int> nums{ 300, 1250, 1000000 };
+   std::vector<amicable_numbers_pairs> amicable_nums{
+      { {220, 284} },
+      { {220, 284}, {1184, 1210} },
+      { {220, 284}, {1184, 1210}, {2620, 2924}, {5020, 5564}, {6232, 6368},
+        {10744, 10856}, {12285, 14595}, {17296, 18416}, {63020, 66928},
+        {66992, 67095}, {69615, 71145}, {76084, 79750}, {87633, 88730},
+        {100485, 122265}, {122368, 123152}, {124155, 139815}, {141664, 142310},
+        {153176, 168730}, {171856, 176272}, {176336, 180848}, {185368, 196724},
+        {202444, 203432}, {280540, 308620}, {319550, 356408}, {365084, 389924},
+        {399592, 430402}, {437456, 455344}, {469028, 486178}, {503056, 514736},
+        {522405, 525915}, {600392, 609928}, {624184, 635624}, {643336, 652664},
+        {667964, 669688}, {686072, 691256}, {712216, 726104}, {783556, 796696},
+        {802725, 863835}, {879712, 898216}, {901424, 947835}, {980984, 998104} }
+   };
+   std::vector<amicable_numbers_pairs> results{};
+   for (auto num : nums ) {
+      results.push_back(calculate_amicable_numbers(num));
+   }
+   ASSERT_EQ(results, amicable_nums);
 }
