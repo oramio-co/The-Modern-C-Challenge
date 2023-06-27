@@ -115,3 +115,7 @@ std::vector<unsigned int> calculate_abundant_numbers(unsigned int num) {
    };
    return abundant_nums;
 }
+
+std::pair<unsigned int, unsigned int> calculate_amicable_numbers(unsigned int num) {
+   return { 0, 0 };
+}
