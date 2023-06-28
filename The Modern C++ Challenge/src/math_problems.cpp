@@ -150,6 +150,18 @@ std::vector<unsigned int> calculate_three_digit_amrstrong_numbers() {
    return armstrong_nums;
 }
 
-std::vector<unsigned int> generate_prime_factorization(const unsigned int num) {
-   return {};
+std::vector<unsigned int> generate_prime_factorization(unsigned int num) {
+   unsigned int sqrt_num{ 2 };
+   while (sqrt_num * sqrt_num < num) {
+      ++sqrt_num;
+   }
+   auto primes{ generate_primes(sqrt_num) };
+   std::vector<unsigned int> prime_factorization{};
+   for (auto prime : primes) {
+      while (num % prime == 0) {
+         prime_factorization.push_back(prime);
+         num /= prime;
+      }
+   }
+   return prime_factorization;
 }
