@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 #include "math_problems.h"
 
@@ -130,4 +131,21 @@ amicable_numbers_pairs calculate_amicable_numbers(const unsigned int num) {
       }
    }
    return pairs;
+}
+
+std::vector<unsigned int> calculate_three_digit_amrstrong_numbers(){
+   std::vector<unsigned int> armstrong_nums{};
+   for (unsigned int i = 100; i < 1000; ++i) {
+      unsigned int ones = i % 10;
+      unsigned int tens = i / 10;
+      tens = tens % 10;
+      unsigned int hundreds = i / 100;
+      unsigned int hundreds_cubed = hundreds * hundreds * hundreds;
+      unsigned int tens_cubed = tens * tens * tens;
+      unsigned int ones_cubed = ones * ones * ones;
+      if (hundreds_cubed + tens_cubed + ones_cubed == i) {
+         armstrong_nums.push_back(i);
+      }
+   }
+   return armstrong_nums;
 }

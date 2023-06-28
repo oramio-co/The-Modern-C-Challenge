@@ -14,5 +14,6 @@ sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num);
 unsigned int sum_of_factors(const unsigned int num);
 std::vector<unsigned int> calculate_abundant_numbers(const unsigned int num);
 amicable_numbers_pairs calculate_amicable_numbers(const unsigned int num);
+std::vector<unsigned int> calculate_three_digit_amrstrong_numbers();
 
 #endif // !MATH_PROBLEMS_H
