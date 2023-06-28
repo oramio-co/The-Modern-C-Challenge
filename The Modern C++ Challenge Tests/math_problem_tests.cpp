@@ -146,7 +146,9 @@ TEST(MathTest, generates_three_digit_binary_numbers) {
 }
 
 TEST(MathTest, converts_binary_digit_to_gray_code) {
-
+   auto bin_nums{ generate_binary_numbers() };
+   std::vector<unsigned int> gray_code_nums{ 0, 1, 11, 10, 110, 111, 101, 100 };
+   ASSERT_EQ(convert_bin_to_gray(bin_nums), gray_code_nums);
 }
 
 TEST(MathTest, converts_gray_code_to_binary_digit) {
