@@ -167,5 +167,18 @@ std::vector<unsigned int> generate_prime_factorization(unsigned int num) {
 }
 
 std::vector<unsigned int> generate_binary_numbers() {
-   return {};
+   std::vector<unsigned int> bin_nums{};
+   for (unsigned int i = 0; i < 8; ++i) {
+      unsigned int index{ 0 };
+      unsigned int num{ i };
+      unsigned int bin{ 0 };
+      while (num) {
+         unsigned int remainder = num % 2;
+         bin += remainder * pow(10, index);
+         num /= 2;
+         ++index;
+      }
+      bin_nums.push_back(bin);
+   }
+   return bin_nums;
 }
