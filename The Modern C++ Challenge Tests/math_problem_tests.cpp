@@ -121,3 +121,8 @@ TEST(MathTest, calculate_amicable_numbers) {
    }
    ASSERT_EQ(results, amicable_nums);
 }
+
+TEST(MathTest, calculate_three_digit_armstrong_numbers) {
+   std::vector<unsigned int> armstrong_numbers{153, 370, 371, 407};
+   ASSERT_EQ(calculate_amrstrong_numbers(), armstrong_numbers);
+}
