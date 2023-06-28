@@ -126,3 +126,16 @@ TEST(MathTest, calculate_three_digit_armstrong_numbers) {
    std::vector<unsigned int> armstrong_numbers{153, 370, 371, 407};
    ASSERT_EQ(calculate_three_digit_amrstrong_numbers(), armstrong_numbers);
 }
+
+TEST(MathTest, generate_prime_factors) {
+   std::vector<unsigned int> nums{ 9, 510510 };
+   std::vector<std::vector<unsigned int>> prime_factorizations{ 
+      {3, 3}, 
+      {2, 3, 5, 7, 11, 13, 17 }
+   };
+   std::vector<std::vector<unsigned int>> results;
+   for (auto num : nums) {
+      results.push_back(generate_prime_factorization(num));
+   }
+   ASSERT_EQ(results, prime_factorizations);
+}
