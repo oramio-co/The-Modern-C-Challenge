@@ -182,3 +182,7 @@ std::vector<unsigned int> generate_binary_numbers() {
    }
    return bin_nums;
 }
+
+std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_nums) {
+   return {};
+}

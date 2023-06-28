@@ -17,5 +17,6 @@ amicable_numbers_pairs calculate_amicable_numbers(const unsigned int num);
 std::vector<unsigned int> calculate_three_digit_amrstrong_numbers();
 std::vector<unsigned int> generate_prime_factorization(unsigned int num);
 std::vector<unsigned int> generate_binary_numbers();
+std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_nums);
 
 #endif // !MATH_PROBLEMS_H
