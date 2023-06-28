@@ -165,3 +165,7 @@ std::vector<unsigned int> generate_prime_factorization(unsigned int num) {
    }
    return prime_factorization;
 }
+
+std::vector<unsigned int> generate_binary_numbers() {
+   return {};
+}
