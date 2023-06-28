@@ -133,7 +133,7 @@ amicable_numbers_pairs calculate_amicable_numbers(const unsigned int num) {
    return pairs;
 }
 
-std::vector<unsigned int> calculate_three_digit_amrstrong_numbers(){
+std::vector<unsigned int> calculate_three_digit_amrstrong_numbers() {
    std::vector<unsigned int> armstrong_nums{};
    for (unsigned int i = 100; i < 1000; ++i) {
       unsigned int ones = i % 10;
@@ -148,4 +148,8 @@ std::vector<unsigned int> calculate_three_digit_amrstrong_numbers(){
       }
    }
    return armstrong_nums;
+}
+
+std::vector<unsigned int> generate_prime_factorization(const unsigned int num) {
+   return {};
 }

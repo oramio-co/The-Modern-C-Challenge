@@ -15,5 +15,6 @@ unsigned int sum_of_factors(const unsigned int num);
 std::vector<unsigned int> calculate_abundant_numbers(const unsigned int num);
 amicable_numbers_pairs calculate_amicable_numbers(const unsigned int num);
 std::vector<unsigned int> calculate_three_digit_amrstrong_numbers();
+std::vector<unsigned int> generate_prime_factorization(const unsigned int num);
 
 #endif // !MATH_PROBLEMS_H
