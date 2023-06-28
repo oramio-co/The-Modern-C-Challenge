@@ -139,3 +139,16 @@ TEST(MathTest, generate_prime_factors) {
    }
    ASSERT_EQ(results, prime_factorizations);
 }
+
+TEST(MathTest, generates_three_digit_binary_numbers) {
+   std::vector<unsigned int> bin_nums{ 000, 001, 10, 11, 100, 101, 110, 111 };
+   ASSERT_EQ(generate_binary_numbers(), bin_nums);
+}
+
+TEST(MathTest, converts_binary_digit_to_gray_code) {
+
+}
+
+TEST(MathTest, converts_gray_code_to_binary_digit) {
+
+}
