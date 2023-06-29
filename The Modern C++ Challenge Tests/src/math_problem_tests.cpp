@@ -152,5 +152,7 @@ TEST(MathTest, converts_binary_digit_to_gray_code) {
 }
 
 TEST(MathTest, converts_gray_code_to_binary_digit) {
-
+   std::vector<unsigned int> gray_code_nums{0, 1, 11, 10, 110, 111, 101, 100 };
+   std::vector<unsigned int> bin_nums{0, 1, 10, 11, 100, 101, 110, 111 };
+   ASSERT_EQ(convert_gray_to_bin(gray_code_nums), bin_nums);
 }
