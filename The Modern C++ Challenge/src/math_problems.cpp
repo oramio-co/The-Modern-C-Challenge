@@ -166,23 +166,31 @@ std::vector<unsigned int> generate_prime_factorization(unsigned int num) {
    return prime_factorization;
 }
 
-std::vector<unsigned int> generate_binary_numbers() {
+unsigned int convert_dec_to_bin(unsigned int dec) {
+   unsigned int index{ 0 };
+   unsigned int bin{ 0 };
+   while (dec) {
+      unsigned int remainder = dec % 2;
+      bin += remainder * pow(10, index);
+      dec /= 2;
+      ++index;
+   }
+   return bin;
+}
+
+std::vector<unsigned int> generate_binary_numbers(unsigned int num) {
    std::vector<unsigned int> bin_nums{};
-   for (unsigned int i = 0; i < 8; ++i) {
-      unsigned int index{ 0 };
-      unsigned int num{ i };
-      unsigned int bin{ 0 };
-      while (num) {
-         unsigned int remainder = num % 2;
-         bin += remainder * pow(10, index);
-         num /= 2;
-         ++index;
-      }
-      bin_nums.push_back(bin);
+   for (unsigned int i = 0; i < num; ++i) {
+      
+      bin_nums.push_back(convert_dec_to_bin(i));
    }
    return bin_nums;
 }
 
 std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_nums) {
-   return {};
+   std::vector<unsigned int> gray_codes{};
+   for (auto num : bin_nums) {
+      gray_codes.push_back(num ^ num >> 1);
+   }
+   return gray_codes;
 }

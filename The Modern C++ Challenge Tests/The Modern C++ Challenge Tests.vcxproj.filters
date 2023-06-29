@@ -2,26 +2,29 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{265a78a3-1aed-4ffa-bcb7-13d2cc77138f}</UniqueIdentifier>
+      <UniqueIdentifier>{97077a44-a9ce-4a6c-be0f-380f8f6880ea}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{763b8d76-b86e-4045-b611-3f5910573527}</UniqueIdentifier>
+      <UniqueIdentifier>{b675e704-7225-454e-935a-a01134b79703}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="math_problem_tests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\test_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\math_problem_tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="The Modern C++ Challenge Tests.rc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\math_problems_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
 </Project>
