@@ -178,6 +178,18 @@ unsigned int convert_dec_to_bin(unsigned int dec) {
    return bin;
 }
 
+unsigned int convert_bin_to_dec(unsigned int bin) {
+   unsigned int index{ 0 };
+   unsigned int dec{ 0 };
+   while (bin) {
+      unsigned int remainder = bin % 10;
+      dec += remainder << index;
+      bin /= 10;
+      ++index;
+   }
+   return dec;
+}
+
 std::vector<unsigned int> generate_binary_numbers(unsigned int num) {
    std::vector<unsigned int> bin_nums{};
    for (unsigned int i = 0; i < num; ++i) {
@@ -188,9 +200,22 @@ std::vector<unsigned int> generate_binary_numbers(unsigned int num) {
 }
 
 std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_nums) {
+   /* Bin_nums are decimal numbers that are meant to look like a binary number.
+      For example, 111 might be a num in bin_nums; it is actually one-hundred
+      eleven, but is meant to represent seven. Thus there is a converstion step
+      of the decimal number to it's true value when in binary. The bin_to_gray
+      step is a simple xor of a binary representation with half its value. Then,
+      there is a final conversion of representing what that gray code would be 
+      in binary, as a decimal number. */
    std::vector<unsigned int> gray_codes{};
-   for (auto num : bin_nums) {
-      gray_codes.push_back(num ^ num >> 1);
+   for (auto bin : bin_nums) {
+      /* Takes one-hundred eleven to seven. 111 -> 7. */
+      auto num{ convert_bin_to_dec(bin) };
+      /* The xor calculation. 7 (0b0111) ^ 3 (0b0011) -> 4 (0b0100). */
+      unsigned int gray{ num ^ num >> 1 };
+      /* Convert back from true binary value four, to decimal that looks like it:
+         one-hundred, 4 -> 100 */
+      gray_codes.push_back(convert_dec_to_bin(gray));
    }
    return gray_codes;
 }
