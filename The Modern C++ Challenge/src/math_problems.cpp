@@ -221,5 +221,16 @@ std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_num
 }
 
 std::vector<unsigned int> convert_gray_to_bin(std::vector<unsigned int>& gray_nums) {
-   return {};
+   /* See convert_bin_to_gray for intermediate conversions. */
+   std::vector<unsigned int> bin_nums{};
+   for (auto num : gray_nums) {
+      num = convert_bin_to_dec(num);
+      unsigned int mask{ num };
+      while (mask) {
+         mask >>= 1;
+         num ^= mask;
+      }
+      bin_nums.push_back(convert_dec_to_bin(num));
+   }
+   return bin_nums;
 }
