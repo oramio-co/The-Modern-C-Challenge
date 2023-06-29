@@ -219,3 +219,7 @@ std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_num
    }
    return gray_codes;
 }
+
+std::vector<unsigned int> convert_gray_to_bin(std::vector<unsigned int>& gray_nums) {
+   return {};
+}
