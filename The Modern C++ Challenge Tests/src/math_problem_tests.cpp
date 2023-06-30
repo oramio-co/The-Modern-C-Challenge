@@ -156,3 +156,13 @@ TEST(MathTest, converts_gray_code_to_binary_digit) {
    std::vector<unsigned int> bin_nums{0, 1, 10, 11, 100, 101, 110, 111 };
    ASSERT_EQ(convert_gray_to_bin(gray_code_nums), bin_nums);
 }
+
+TEST(RomanNumerals, convert_basic_roman_numerals) {
+   std::vector<int> dec_nums{ 1, 5, 10, 50, 100, 500, 1000 };
+   std::vector<std::string> roman_numerals{ "I", "V", "X", "L", "C", "D", "M" };
+   std::vector<std::string> results{};
+   for (auto num : dec_nums) {
+      results.push_back(convert_dec_to_roman_numeral(num));
+   }
+   ASSERT_EQ(results, roman_numerals);
+}
