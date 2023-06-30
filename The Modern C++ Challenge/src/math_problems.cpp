@@ -330,3 +330,7 @@ unsigned int collatz_stopping_length(const unsigned int num) {
    }
    return stopping_lengths[num];
 }
+
+unsigned int num_max_collatz_stopping_length(const unsigned int num) {
+   return 0;
+}
