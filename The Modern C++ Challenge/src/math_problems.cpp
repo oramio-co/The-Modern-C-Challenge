@@ -235,33 +235,55 @@ std::vector<unsigned int> convert_gray_to_bin(std::vector<unsigned int>& gray_nu
    return bin_nums;
 }
 
-std::string convert_dec_to_roman_numeral(int dec) {
-   std::string result{""};
-   switch (dec)
+enum roman_numerals {
+   M = 1000,
+   D = 500,
+   C = 100,
+   L = 50,
+   X = 10,
+   V = 5,
+   I = 1
+};
+
+std::string roman_enum_to_string(roman_numerals num) {
+   std::string roman_num{""};
+   switch (num)
    {
-   case 1000:
-      result += "M";
+   case M:
+      roman_num = "M";
       break;
    case 500:
-      result += "D";
+      roman_num = "D";
       break;
    case 100:
-      result += "C";
+      roman_num = "C";
       break;
    case 50:
-      result += "L";
+      roman_num = "L";
       break;
    case 10:
-      result += "X";
+      roman_num = "X";
       break;
    case 5:
-      result += "V";
+      roman_num = "V";
       break;
    case 1:
-      result += "I";
+      roman_num = "I";
       break;
    default:
       break;
+   }
+   return roman_num;
+}
+
+std::string convert_dec_to_roman_numeral(int dec) {
+   std::string result{""};
+   std::vector<roman_numerals> roman_nums{M, D, C, L, X, V, I};
+   for (auto num : roman_nums) {
+      while (dec / num) {
+         result += roman_enum_to_string(num);
+         dec -= num;
+      }
    }
    return result;
 }
