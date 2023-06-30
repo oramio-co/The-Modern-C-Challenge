@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
+#include <map>
 
 #include "math_problems.h"
 
@@ -315,5 +316,17 @@ std::string convert_dec_to_roman_numeral(int dec) {
 }
 
 unsigned int collatz_stopping_length(const unsigned int num) {
-   return 0;
+   if (num == 1) {
+      return 0;
+   }
+   static std::map<unsigned int, unsigned int> stopping_lengths{};
+   if (!stopping_lengths[num]) {
+      if (num % 2 == 0) {
+         stopping_lengths[num] = collatz_stopping_length(num / 2) + 1;
+      }
+      else {
+         stopping_lengths[num] = collatz_stopping_length(3 * num + 1) + 1;
+      }
+   }
+   return stopping_lengths[num];
 }
