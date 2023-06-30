@@ -24,5 +24,6 @@ std::vector<unsigned int> generate_binary_numbers(unsigned int num);
 std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_nums);
 std::vector<unsigned int> convert_gray_to_bin(std::vector<unsigned int>& gray_nums);
 std::string convert_dec_to_roman_numeral(int dec);
+unsigned int collatz_stopping_length(const unsigned int num);
 
 #endif // !MATH_PROBLEMS_H

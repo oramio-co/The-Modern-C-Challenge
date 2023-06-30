@@ -313,3 +313,7 @@ std::string convert_dec_to_roman_numeral(int dec) {
    }
    return result;
 }
+
+unsigned int collatz_stopping_length(const unsigned int num) {
+   return 0;
+}
