@@ -172,3 +172,11 @@ TEST_F(RomanNumeralsTest, convert_basic_roman_numerals) {
    }
    ASSERT_EQ(results, roman_numerals);
 }
+
+TEST_F(RomanNumeralsTest, convert_multiple_basic_roman_numerals) {
+   dec_nums = { 3, 30, 300, 3000 };
+   roman_numerals = { "III", "XXX", "CCC", "MMM" };
+   for (auto num : dec_nums) {
+      results.push_back(convert_dec_to_roman_numeral(num));
+   }
+}
