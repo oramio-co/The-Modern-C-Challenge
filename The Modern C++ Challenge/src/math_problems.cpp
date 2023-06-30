@@ -205,7 +205,7 @@ std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_num
       eleven, but is meant to represent seven. Thus there is a converstion step
       of the decimal number to it's true value when in binary. The bin_to_gray
       step is a simple xor of a binary representation with half its value. Then,
-      there is a final conversion of representing what that gray code would be 
+      there is a final conversion of representing what that gray code would be
       in binary, as a decimal number. */
    std::vector<unsigned int> gray_codes{};
    for (auto bin : bin_nums) {
@@ -278,11 +278,37 @@ std::string roman_enum_to_string(roman_numerals num) {
 
 std::string convert_dec_to_roman_numeral(int dec) {
    std::string result{""};
+   const int MAX{ 3999 };
+   if (dec > MAX) {
+      return result;
+   }
    std::vector<roman_numerals> roman_nums{M, D, C, L, X, V, I};
-   for (auto num : roman_nums) {
-      while (dec / num) {
-         result += roman_enum_to_string(num);
-         dec -= num;
+   const int NINE{ 9 };
+   const int FOUR{ 4 };
+   const int FIVE{ 5 };
+   for (std::size_t i = 0; i < roman_nums.size(); i += 2) {
+      int count{ dec / roman_nums[i] };
+      while (count) {
+         if (count == NINE) {
+            result += roman_enum_to_string(roman_nums[i]) + roman_enum_to_string(roman_nums[i - 2]);
+            count -= NINE;
+            dec -= NINE * roman_nums[i];
+         }
+         else if (count == FOUR) {
+            result += roman_enum_to_string(roman_nums[i]) + roman_enum_to_string(roman_nums[i - 1]);
+            count -= FOUR;
+            dec -= FOUR * roman_nums[i];
+         }
+         else if (count >= FIVE) {
+            result += roman_enum_to_string(roman_nums[i - 1]);
+            count -= FIVE;
+            dec -= FIVE * roman_nums[i];
+         }
+         else {
+            result += roman_enum_to_string(roman_nums[i]);
+            --count;
+            dec -= roman_nums[i];
+         }
       }
    }
    return result;
