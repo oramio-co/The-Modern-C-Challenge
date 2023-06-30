@@ -234,3 +234,7 @@ std::vector<unsigned int> convert_gray_to_bin(std::vector<unsigned int>& gray_nu
    }
    return bin_nums;
 }
+
+std::string convert_dec_to_roman_numeral(int dec) {
+   return "";
+}
