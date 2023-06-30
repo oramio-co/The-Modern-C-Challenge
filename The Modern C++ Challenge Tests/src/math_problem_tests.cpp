@@ -209,3 +209,15 @@ TEST(MathTest, calculate_stopping_length_of_collatz_conjecture_sequence) {
    }
    ASSERT_EQ(results, stopping_length);
 }
+
+TEST(MathTest, calculate_num_with_longest_collatz_stopping_length_less_than_given) {
+   std::vector<unsigned int> nums{ 10, 100, 1000, 10000, 100000, 1000000 };
+   std::vector<unsigned int> num_with_max_stopping_length{
+      9, 97, 871, 6171, 77031, 837799
+   };
+   std::vector<unsigned int> results{};
+   for (auto num : nums) {
+      results.push_back(num_max_collatz_stopping_length(num));
+   }
+   ASSERT_EQ(results, num_with_max_stopping_length);
+}
