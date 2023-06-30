@@ -179,4 +179,14 @@ TEST_F(RomanNumeralsTest, convert_multiple_basic_roman_numerals) {
    for (auto num : dec_nums) {
       results.push_back(convert_dec_to_roman_numeral(num));
    }
+   ASSERT_EQ(results, roman_numerals);
+}
+
+TEST_F(RomanNumeralsTest, convert_numerals_including_four_or_nine) {
+   dec_nums = { 4, 9, 40, 90, 400, 900 };
+   roman_numerals = { "IV", "IX", "XL", "XC", "CD", "CM" };
+   for (auto num : dec_nums) {
+      results.push_back(convert_dec_to_roman_numeral(num));
+   }
+   ASSERT_EQ(results, roman_numerals);
 }
