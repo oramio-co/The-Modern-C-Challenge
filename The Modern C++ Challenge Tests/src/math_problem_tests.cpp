@@ -199,3 +199,13 @@ TEST_F(RomanNumeralsTest, convert_mixed_roman_numerals) {
    }
    ASSERT_EQ(results, roman_numerals);
 }
+
+TEST(MathTest, calculate_stopping_length_of_collatz_conjecture_sequence) {
+   std::vector<unsigned int> nums{ 1, 2, 4, 8, 16, 5, 32, 10, 64, 3, 20, 21, 128};
+   std::vector<unsigned int> stopping_length{0, 1, 2, 3, 4, 5, 5, 6, 6, 7, 7, 7, 7};
+   std::vector<unsigned int> results{};
+   for (auto num : nums) {
+      results.push_back(collatz_stopping_length(num));
+   }
+   ASSERT_EQ(results, stopping_length);
+}
