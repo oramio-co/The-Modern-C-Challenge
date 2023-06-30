@@ -190,3 +190,12 @@ TEST_F(RomanNumeralsTest, convert_numerals_including_four_or_nine) {
    }
    ASSERT_EQ(results, roman_numerals);
 }
+
+TEST_F(RomanNumeralsTest, convert_mixed_roman_numerals) {
+   dec_nums = { 543, 1419, 2396, 3974 };
+   roman_numerals = { "DXLIII", "MCDXIX", "MMCCCXCVI", "MMMCMLXXIV" };
+   for (auto num : dec_nums) {
+      results.push_back(convert_dec_to_roman_numeral(num));
+   }
+   ASSERT_EQ(results, roman_numerals);
+}
