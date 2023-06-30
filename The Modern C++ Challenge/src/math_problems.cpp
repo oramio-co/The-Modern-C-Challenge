@@ -236,5 +236,32 @@ std::vector<unsigned int> convert_gray_to_bin(std::vector<unsigned int>& gray_nu
 }
 
 std::string convert_dec_to_roman_numeral(int dec) {
-   return "";
+   std::string result{""};
+   switch (dec)
+   {
+   case 1000:
+      result += "M";
+      break;
+   case 500:
+      result += "D";
+      break;
+   case 100:
+      result += "C";
+      break;
+   case 50:
+      result += "L";
+      break;
+   case 10:
+      result += "X";
+      break;
+   case 5:
+      result += "V";
+      break;
+   case 1:
+      result += "I";
+      break;
+   default:
+      break;
+   }
+   return result;
 }
