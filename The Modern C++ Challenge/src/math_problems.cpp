@@ -332,5 +332,19 @@ unsigned int collatz_stopping_length(const unsigned int num) {
 }
 
 unsigned int num_max_collatz_stopping_length(const unsigned int num) {
-   return 0;
+   unsigned int max_num{ 1 };
+   unsigned int max_stopping_length{ 0 };
+   for (unsigned int i = 1; i < num; ++i) {
+      unsigned int stopping_length = collatz_stopping_length(i);
+      if (stopping_length > max_stopping_length) {
+         max_stopping_length = stopping_length;
+         max_num = i;
+      }
+      else if (stopping_length == max_stopping_length) {
+         if (i > max_num) {
+            max_num = i;
+         }
+      }
+   }
+   return max_num;
 }
