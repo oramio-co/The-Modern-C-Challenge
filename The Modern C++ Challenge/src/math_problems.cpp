@@ -350,5 +350,14 @@ unsigned int num_max_collatz_stopping_length(const unsigned int num) {
 }
 
 double calculate_pi_to_n_decimals(unsigned int n) {
-   return 0.0;
+   double epsilon{ pow(10, -(n + 2.0)) };
+   double pi_fourth{ 0.0 };
+   for (unsigned int i = 0; ; ++i) {
+      double term = pow(-1, i) / (2.0 * i + 1);
+      if (abs(term) < epsilon) {
+         break;
+      }
+      pi_fourth += term;
+   }
+   return 4.0 * pi_fourth;
 }
