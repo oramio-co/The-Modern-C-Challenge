@@ -221,3 +221,9 @@ TEST(MathTest, DISABLED_calculate_num_with_longest_collatz_stopping_length_less_
    }
    ASSERT_EQ(results, num_with_max_stopping_length);
 }
+
+TEST(MathTest, calculate_pi_to_given_number_of_decimal_places) {
+   unsigned int given{ 2 };
+   double pi{ 3.14 };
+   EXPECT_DOUBLE_EQ(calculate_pi_to_n_decimals(given), pi);
+}
