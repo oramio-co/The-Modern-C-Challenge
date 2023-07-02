@@ -362,6 +362,15 @@ double calculate_pi_to_n_decimals(unsigned int n) {
    return 4.0 * pi_fourth;
 }
 
-bool validate_ISBN_10(std::string isbn) {
-   return false;
+bool validate_ISBN_10(std::string_view isbn) {
+   std::vector<unsigned int> nums{};
+   for (auto ch : isbn) {
+      if (ch == 'x' || ch == 'X') {
+         nums.push_back(10);
+      }
+      else if (isdigit(ch)) {
+         nums.push_back(ch - '0');
+      }
+   }
+   return nums.size() == 10;
 }
