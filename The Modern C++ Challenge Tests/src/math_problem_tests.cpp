@@ -241,3 +241,10 @@ TEST(ValidateISBN10, return_true_when_valid_format) {
       EXPECT_TRUE(validate_ISBN_10(isbn));
    }
 }
+
+TEST(ValidateISBN10, return_false_when_valid_format_but_fail_checksum) {
+   std::vector<std::string> isbns{"0-330-28498-2", "4-19-830127-x", "0-9752298-0-9"};
+   for (auto isbn : isbns) {
+      EXPECT_FALSE(validate_ISBN_10(isbn));
+   }
+}
