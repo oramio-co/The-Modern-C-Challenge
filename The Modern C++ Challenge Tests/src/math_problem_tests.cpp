@@ -229,8 +229,15 @@ TEST(MathTest, calculate_pi_to_given_number_of_decimal_places) {
 }
 
 TEST(ValidateISBN10, return_false_when_not_10_digits_with_hypens) {
-   std::vector<std::string> isbns{"1234567890", "1b23c456789a0", "12-34-56789=0"};
+   std::vector<std::string> isbns{"0-330-2849-3", "4-19-83012a-1"};
    for (auto isbn : isbns) {
       EXPECT_FALSE(validate_ISBN_10(isbn));
+   }
+}
+
+TEST(ValidateISBN10, return_true_when_valid_format) {
+   std::vector<std::string> isbns{"0-330-28498-3", "4-19-830127-1", "0-9752298-0-X"};
+   for (auto isbn : isbns) {
+      EXPECT_TRUE(validate_ISBN_10(isbn));
    }
 }
