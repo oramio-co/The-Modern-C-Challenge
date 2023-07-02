@@ -361,3 +361,7 @@ double calculate_pi_to_n_decimals(unsigned int n) {
    }
    return 4.0 * pi_fourth;
 }
+
+bool validate_ISBN_10(std::string isbn) {
+   return false;
+}

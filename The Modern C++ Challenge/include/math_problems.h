@@ -27,5 +27,6 @@ std::string convert_dec_to_roman_numeral(int dec);
 unsigned int collatz_stopping_length(const unsigned int num);
 unsigned int num_max_collatz_stopping_length(const unsigned int num);
 double calculate_pi_to_n_decimals(unsigned int n);
+bool validate_ISBN_10(std::string isbn);
 
 #endif // !MATH_PROBLEMS_H
