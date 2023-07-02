@@ -227,3 +227,10 @@ TEST(MathTest, calculate_pi_to_given_number_of_decimal_places) {
    double pi{ 3.14 };
    EXPECT_NEAR(calculate_pi_to_n_decimals(given), pi, .01);
 }
+
+TEST(ValidateISBN10, return_false_when_not_10_digits_with_hypens) {
+   std::vector<std::string> isbns{"1234567890", "1b23c456789a0", "12-34-56789=0"};
+   for (auto isbn : isbns) {
+      EXPECT_FALSE(validate_ISBN_10(isbn));
+   }
+}
