@@ -372,5 +372,12 @@ bool validate_ISBN_10(std::string_view isbn) {
          nums.push_back(ch - '0');
       }
    }
-   return nums.size() == 10;
+   if (nums.size() != 10) {
+      return false;
+   }
+   unsigned int sum{ 0 };
+   for (std::size_t i = 0; i < nums.size(); ++i) {
+      sum += nums[i] * (10 - i);
+   }
+   return sum % 11 == 0;
 }
