@@ -348,3 +348,7 @@ unsigned int num_max_collatz_stopping_length(const unsigned int num) {
    }
    return max_num;
 }
+
+double calculate_pi_to_n_decimals(unsigned int n) {
+   return 0.0;
+}

@@ -26,5 +26,6 @@ std::vector<unsigned int> convert_gray_to_bin(std::vector<unsigned int>& gray_nu
 std::string convert_dec_to_roman_numeral(int dec);
 unsigned int collatz_stopping_length(const unsigned int num);
 unsigned int num_max_collatz_stopping_length(const unsigned int num);
+double calculate_pi_to_n_decimals(unsigned int n);
 
 #endif // !MATH_PROBLEMS_H
