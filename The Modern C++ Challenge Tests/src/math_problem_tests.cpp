@@ -106,6 +106,7 @@ TEST(MathTest, generate_prime_factors) {
    t_EXPECT_EQ(&generate_prime_factorization, nums, prime_factorizations);
 }
 
+/* refactor gray code tests for individual numbers, instead of passing vector. */
 TEST(MathTest, generates_three_digit_binary_numbers) {
    std::vector<unsigned int> bin_nums{ 000, 001, 10, 11, 100, 101, 110, 111 };
    EXPECT_EQ(generate_binary_numbers(8), bin_nums);
