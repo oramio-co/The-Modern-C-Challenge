@@ -35,6 +35,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>"D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include";D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\The Modern C++ Challenge\The Modern C++ Challenge.vcxproj">
       <Project>{4c6f3913-3882-4148-b60d-077e54f2a0e2}</Project>
@@ -92,12 +95,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
