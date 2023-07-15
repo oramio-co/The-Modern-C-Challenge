@@ -21,9 +21,15 @@
     <ClCompile Include="src\math_problems.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\string_problems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\math_problems.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\string_problems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
