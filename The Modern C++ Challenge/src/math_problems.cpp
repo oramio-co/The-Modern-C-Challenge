@@ -1,14 +1,16 @@
-#include <algorithm>
 #include <vector>
-#include <cmath>
+#include <string>
 #include <map>
 
 #include "math_problems.h"
 
+unsigned int convert_dec_to_bin(unsigned int dec);
+unsigned int convert_bin_to_dec(unsigned int bin);
+
 unsigned int sum_multiples(int num) {
-   unsigned int sum{ 0 };
-   const int MAX_NUM{ 135671 };
-   if (num > MAX_NUM) {
+   unsigned int sum = 0;
+   constexpr int max_num = 135671;
+   if (num > max_num) {
       return sum;
    }
    for (int i = 1; i <= num; ++i) {
@@ -20,16 +22,16 @@ unsigned int sum_multiples(int num) {
 }
 
 unsigned int sum_multiples_alt(int num) {
-   const int MAX_NUM{ 135671 };
-   if (num > MAX_NUM) {
+   constexpr int max_num = 135671;
+   if (num > max_num) {
       return 0;
    }
-   int t = num / 3;
-   int f = num / 5;
-   int ft = num / 15;
-   unsigned int sum_t = 3 * t * (t + 1) / 2;
-   unsigned int sum_f = 5 * f * (f + 1) / 2;
-   unsigned int sum_ft = 15 * ft * (ft + 1) / 2;
+   const int t = num / 3;
+   const int f = num / 5;
+   const int ft = num / 15;
+   const unsigned int sum_t = 3 * t * (t + 1) / 2;
+   const unsigned int sum_f = 5 * f * (f + 1) / 2;
+   const unsigned int sum_ft = 15 * ft * (ft + 1) / 2;
    return sum_t + sum_f - sum_ft;
 }
 
@@ -46,14 +48,17 @@ int greatest_common_denominator(int a, int b) {
 }
 
 unsigned int least_common_multiple(int a, int b) {
-   int gcd{ greatest_common_denominator(a, b) };
+   int gcd = greatest_common_denominator(a, b);
    return a * b / gcd;
 }
 
 std::vector<unsigned int> generate_primes(unsigned int num) {
    std::vector<unsigned int> primes{};
-   for (unsigned int i = 2; i <= num; ++i) {
-      bool isPrime{ true };
+   if (num >= 2) {
+      primes.push_back(2);
+   }
+   for (unsigned int i = 3; i <= num; i += 2) {
+      bool isPrime = true;
       for (auto prime : primes) {
          if (prime * prime > i) {
             break;
@@ -79,14 +84,13 @@ sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num) {
    sexy_primes_pairs pairs{};
    for (auto it = primes.begin(); it != primes.end(); ++it) {
       auto next = std::next(it);
-      bool done{ false };
-      while (next != primes.end() && !done) {
+      while (next != primes.end()) {
          if (*next - *it > 6) {
-            done = true;
+            break;
          }
          else if (*next - *it == 6) {
             pairs.push_back(std::make_pair(*it, *next));
-            done = true;
+            break;
          }
          else {
             ++next;
@@ -96,9 +100,9 @@ sexy_primes_pairs calculate_sexy_primes_pairs(unsigned int num) {
    return pairs;
 }
 
-unsigned int sum_of_factors(const unsigned int num) {
-   unsigned int sum{};
-   for (unsigned int i = 1; i * i <= num; ++i) {
+unsigned int sum_of_factors(unsigned int num) {
+   unsigned int sum = 1;
+   for (unsigned int i = 2; i * i <= num; ++i) {
       if (num % i) {
          continue;
       }
@@ -112,22 +116,23 @@ unsigned int sum_of_factors(const unsigned int num) {
    return sum;
 }
 
-std::vector<unsigned int> calculate_abundant_numbers(const unsigned int num) {
+std::vector<unsigned int> calculate_abundant_numbers(unsigned int num) {
    std::vector<unsigned int> abundant_nums{};
-   for (unsigned int i = 12; i <= num; ++i) {
-      if (sum_of_factors(i) > 2 * i) {
+   constexpr unsigned int min_abundant_number = 12;
+   for (unsigned int i = min_abundant_number; i <= num; ++i) {
+      if (sum_of_factors(i) > i) {
          abundant_nums.push_back(i);
       }
    };
    return abundant_nums;
 }
 
-amicable_numbers_pairs calculate_amicable_numbers(const unsigned int num) {
+amicable_numbers_pairs calculate_amicable_numbers(unsigned int num) {
    amicable_numbers_pairs pairs{};
    std::vector<unsigned int> abundant_nums{ calculate_abundant_numbers(num) };
    for (auto it = abundant_nums.begin(); it != abundant_nums.end(); ++it) {
-      unsigned int sum{ sum_of_factors(*it) - *it };
-      if (sum <= num && sum_of_factors(sum) - sum == *it) {
+      unsigned int sum = sum_of_factors(*it);
+      if (sum <= num && sum_of_factors(sum) == *it) {
          pairs.push_back(std::make_pair(*it, sum));
       }
    }
@@ -137,13 +142,13 @@ amicable_numbers_pairs calculate_amicable_numbers(const unsigned int num) {
 std::vector<unsigned int> calculate_three_digit_amrstrong_numbers() {
    std::vector<unsigned int> armstrong_nums{};
    for (unsigned int i = 100; i < 1000; ++i) {
-      unsigned int ones = i % 10;
+      const unsigned int ones = i % 10;
       unsigned int tens = i / 10;
-      tens = tens % 10;
-      unsigned int hundreds = i / 100;
-      unsigned int hundreds_cubed = hundreds * hundreds * hundreds;
-      unsigned int tens_cubed = tens * tens * tens;
-      unsigned int ones_cubed = ones * ones * ones;
+      tens %= 10;
+      const unsigned int hundreds = i / 100;
+      const unsigned int hundreds_cubed = hundreds * hundreds * hundreds;
+      const unsigned int tens_cubed = tens * tens * tens;
+      const unsigned int ones_cubed = ones * ones * ones;
       if (hundreds_cubed + tens_cubed + ones_cubed == i) {
          armstrong_nums.push_back(i);
       }
@@ -152,7 +157,7 @@ std::vector<unsigned int> calculate_three_digit_amrstrong_numbers() {
 }
 
 std::vector<unsigned int> generate_prime_factorization(unsigned int num) {
-   unsigned int sqrt_num{ 2 };
+   unsigned int sqrt_num = 2;
    while (sqrt_num * sqrt_num < num) {
       ++sqrt_num;
    }
@@ -168,11 +173,11 @@ std::vector<unsigned int> generate_prime_factorization(unsigned int num) {
 }
 
 unsigned int convert_dec_to_bin(unsigned int dec) {
-   unsigned int index{ 0 };
-   unsigned int bin{ 0 };
+   unsigned int index = 0;
+   unsigned int bin = 0;
    while (dec) {
       unsigned int remainder = dec % 2;
-      bin += remainder * pow(10, index);
+      bin += remainder * static_cast<int>(pow(10, index));
       dec /= 2;
       ++index;
    }
@@ -180,8 +185,8 @@ unsigned int convert_dec_to_bin(unsigned int dec) {
 }
 
 unsigned int convert_bin_to_dec(unsigned int bin) {
-   unsigned int index{ 0 };
-   unsigned int dec{ 0 };
+   unsigned int index = 0;
+   unsigned int dec = 0;
    while (bin) {
       unsigned int remainder = bin % 10;
       dec += remainder << index;
@@ -191,7 +196,7 @@ unsigned int convert_bin_to_dec(unsigned int bin) {
    return dec;
 }
 
-std::vector<unsigned int> generate_binary_numbers(unsigned int num) {
+std::vector<unsigned int> generate_binary_numbers(const unsigned int num) {
    std::vector<unsigned int> bin_nums{};
    for (unsigned int i = 0; i < num; ++i) {
       
@@ -200,6 +205,7 @@ std::vector<unsigned int> generate_binary_numbers(unsigned int num) {
    return bin_nums;
 }
 
+/* to do: refecator signature for single bins, not vector. */
 std::vector<unsigned int> convert_bin_to_gray(std::vector<unsigned int>& bin_nums) {
    /* Bin_nums are decimal numbers that are meant to look like a binary number.
       For example, 111 might be a num in bin_nums; it is actually one-hundred
@@ -277,33 +283,35 @@ std::string roman_enum_to_string(roman_numerals num) {
    return roman_num;
 }
 
+/* to do: refactor to go through cases as decreasing possibles, instead of calculating
+   special cases of 4, 9, >3. */
 std::string convert_dec_to_roman_numeral(int dec) {
    std::string result{""};
-   const int MAX{ 3999 };
-   if (dec > MAX) {
+   constexpr int max = 3999;
+   if (dec > max) {
       return result;
    }
    std::vector<roman_numerals> roman_nums{M, D, C, L, X, V, I};
-   const int NINE{ 9 };
-   const int FOUR{ 4 };
-   const int FIVE{ 5 };
+   constexpr int nine = 9;
+   constexpr int four = 4;
+   constexpr int five = 5;
    for (std::size_t i = 0; i < roman_nums.size(); i += 2) {
       int count{ dec / roman_nums[i] };
       while (count) {
-         if (count == NINE) {
+         if (count == nine) {
             result += roman_enum_to_string(roman_nums[i]) + roman_enum_to_string(roman_nums[i - 2]);
-            count -= NINE;
-            dec -= NINE * roman_nums[i];
+            count -= nine;
+            dec -= nine * roman_nums[i];
          }
-         else if (count == FOUR) {
+         else if (count == four) {
             result += roman_enum_to_string(roman_nums[i]) + roman_enum_to_string(roman_nums[i - 1]);
-            count -= FOUR;
-            dec -= FOUR * roman_nums[i];
+            count -= four;
+            dec -= four * roman_nums[i];
          }
-         else if (count >= FIVE) {
+         else if (count >= five) {
             result += roman_enum_to_string(roman_nums[i - 1]);
-            count -= FIVE;
-            dec -= FIVE * roman_nums[i];
+            count -= five;
+            dec -= five * roman_nums[i];
          }
          else {
             result += roman_enum_to_string(roman_nums[i]);
@@ -315,7 +323,7 @@ std::string convert_dec_to_roman_numeral(int dec) {
    return result;
 }
 
-unsigned int collatz_stopping_length(const unsigned int num) {
+unsigned int collatz_stopping_length(unsigned int num) {
    if (num == 1) {
       return 0;
    }
@@ -331,9 +339,9 @@ unsigned int collatz_stopping_length(const unsigned int num) {
    return stopping_lengths[num];
 }
 
-unsigned int num_max_collatz_stopping_length(const unsigned int num) {
-   unsigned int max_num{ 1 };
-   unsigned int max_stopping_length{ 0 };
+unsigned int num_max_collatz_stopping_length(unsigned int num) {
+   unsigned int max_num = 1;
+   unsigned int max_stopping_length = 0;
    for (unsigned int i = 1; i < num; ++i) {
       unsigned int stopping_length = collatz_stopping_length(i);
       if (stopping_length > max_stopping_length) {
@@ -350,8 +358,12 @@ unsigned int num_max_collatz_stopping_length(const unsigned int num) {
 }
 
 double calculate_pi_to_n_decimals(unsigned int n) {
-   double epsilon{ pow(10, -(n + 2.0)) };
-   double pi_fourth{ 0.0 };
+   constexpr unsigned int MAX_PRECISION = 13;
+   if (n > MAX_PRECISION) {
+      n =  MAX_PRECISION;
+   }
+   double epsilon = pow(10, -(n + 2.0));
+   double pi_fourth = 0.0;
    for (unsigned int i = 0; ; ++i) {
       double term = pow(-1, i) / (2.0 * i + 1);
       if (abs(term) < epsilon) {
