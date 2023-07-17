@@ -21,4 +21,6 @@ std::string bytes_to_hex_string(const Collection& col) {
    return bytes_to_hex_string(std::begin(col), std::end(col));
 };
 
+std::vector<uint8_t> string_to_hex_bytes(std::string_view);
+
 #endif // !STRING_PROBLEMS_H
