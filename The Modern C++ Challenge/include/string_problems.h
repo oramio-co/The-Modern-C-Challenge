@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <cstdint>
+#include <iomanip>
 
 template <typename Iter>
 std::string bytes_to_hex_string(Iter begin, const Iter end) {
@@ -22,5 +23,7 @@ std::string bytes_to_hex_string(const Collection& col) {
 };
 
 std::vector<uint8_t> string_to_hex_bytes(std::string_view);
+
+std::string capitalize(std::string_view);
 
 #endif // !STRING_PROBLEMS_H

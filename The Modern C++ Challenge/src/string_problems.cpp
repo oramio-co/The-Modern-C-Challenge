@@ -1,8 +1,6 @@
-#include <string>
 #include <vector>
 #include <cstdint>
 #include <sstream>
-#include <iomanip>
 
 #include "string_problems.h"
 
@@ -27,4 +25,25 @@ std::vector<uint8_t> string_to_hex_bytes(std::string_view input) {
       );
    }
    return result;
+}
+
+std::string capitalize(std::string_view text) {
+   std::ostringstream result;
+   bool newWord = true;
+   for (const auto ch : text) {
+      newWord = newWord || std::isspace(ch);
+      if (std::isalpha(ch)) {
+         if (newWord) {
+            result << static_cast<char>(std::toupper(ch));
+            newWord = false;
+         }
+         else {
+            result << static_cast<char>(std::tolower(ch));
+         }
+      }
+      else {
+         result << ch;
+      }
+   }
+   return result.str();
 }
