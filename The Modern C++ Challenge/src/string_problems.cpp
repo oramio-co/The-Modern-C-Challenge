@@ -47,3 +47,15 @@ std::string capitalize(std::string_view text) {
    }
    return result.str();
 }
+
+std::string join_strings(const std::vector<std::string>& list, char delimiter) {
+   std::string result{};
+   for (std::string_view str : list) {
+      result += str;
+      result += delimiter;
+   }
+   if (result.size()) {
+      result.pop_back();
+   }
+   return result;
+}

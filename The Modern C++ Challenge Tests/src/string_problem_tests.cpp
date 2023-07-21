@@ -45,3 +45,10 @@ TEST(StringProblem, capitalization_handles_mixed_case_of_given_string) {
    std::string output = "This Is An Example, And Should Work!";
    EXPECT_EQ(capitalize(input), output);
 }
+
+TEST(StringProblem, join_strings_together_separated_by_a_given_delimiter) {
+   std::vector<std::string> input = { "this", "is", "an", "example" };
+   const char delimiter = ' ';
+   std::string output = "this is an example";
+   EXPECT_EQ(join_strings(input, delimiter), output);
+}

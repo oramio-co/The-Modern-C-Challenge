@@ -26,4 +26,6 @@ std::vector<uint8_t> string_to_hex_bytes(std::string_view);
 
 std::string capitalize(std::string_view);
 
+std::string join_strings(const std::vector<std::string>& list, char delimiter);
+
 #endif // !STRING_PROBLEMS_H
