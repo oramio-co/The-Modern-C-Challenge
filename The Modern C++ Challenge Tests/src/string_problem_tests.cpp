@@ -52,3 +52,10 @@ TEST(StringProblem, join_strings_together_separated_by_a_given_delimiter) {
    std::string output = "this is an example";
    EXPECT_EQ(join_strings(input, delimiter), output);
 }
+
+TEST(StringProblem, split_a_string_into_tokens_with_a_list_of_given_delimiters) {
+   std::string input = "this,is.a sample!!";
+   std::vector<char> delimiters{ ',', '.', '!', ' ' };
+   std::vector<std::string> output { "this", "is", "a", "sample" };
+   EXPECT_EQ(split_string(input, delimiters), output);
+}

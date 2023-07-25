@@ -59,3 +59,18 @@ std::string join_strings(const std::vector<std::string>& list, char delimiter) {
    }
    return result;
 }
+
+std::vector<std::string> split_string(std::string_view str, std::vector<char> delims) {
+   std::vector<std::string> results;
+   std::string word;
+   for (auto ch : str) {
+      if (std::find(delims.begin(), delims.end(), ch) != delims.end() and word.size()) {
+         results.push_back(word);
+         word.erase();
+      }
+      else {
+         word.push_back(ch);
+      }
+   }
+   return results;
+}

@@ -28,4 +28,6 @@ std::string capitalize(std::string_view);
 
 std::string join_strings(const std::vector<std::string>& list, char delimiter);
 
+std::vector<std::string> split_string(std::string_view str, std::vector<char> delims);
+
 #endif // !STRING_PROBLEMS_H
