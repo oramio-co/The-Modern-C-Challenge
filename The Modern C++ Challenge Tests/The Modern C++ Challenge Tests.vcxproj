@@ -33,7 +33,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>"D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include";D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge\include;D:\source\workspaces\C_C++\C++\The Modern C++ Challenge\The Modern C++ Challenge Tests\include;$(IncludePath)</IncludePath>
@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\math_problem_tests.cpp" />
+    <ClCompile Include="src\string_problem_tests.cpp" />
     <ClCompile Include="src\test_main.cpp" />
   </ItemGroup>
   <ItemGroup>
